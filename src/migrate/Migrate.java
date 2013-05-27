@@ -1,7 +1,5 @@
 package migrate;
 
-import java.sql.DriverManager;
-
 import com.googlecode.flyway.core.Flyway;
 import com.googlecode.flyway.core.api.MigrationVersion;
 
@@ -28,6 +26,7 @@ public class Migrate {
 	 * @param version
 	 */
 	public void migrateTo(String version){
+		
 		flyway.setTarget(new MigrationVersion(version));
 		flyway.migrate();
 	}
@@ -38,6 +37,10 @@ public class Migrate {
 	public void init(){
 		flyway.clean();
 	}
-	
+
+	public void setDataSource(DatabaseManagerSQL databaseManagerSQL) {
+		this.setDataSource(databaseManagerSQL.getUrl(), databaseManagerSQL.getUtilisateur(), databaseManagerSQL.getPassword());
+	}
+
 
 }
