@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import com.googlecode.flyway.core.Flyway;
 import com.googlecode.flyway.core.api.MigrationVersion;
 
+import databaseManager.databaseManagerImpl.DatabaseManagerSQL;
+
 public class Migrate {
 
 	/**

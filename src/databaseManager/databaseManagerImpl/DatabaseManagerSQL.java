@@ -22,6 +22,17 @@ public class DatabaseManagerSQL extends DatabaseManager {
 			return connection;
 	}
 	
+	public void initFlipTable(){
+		try {
+			Statement statement = connection.createStatement();
+			
+			 statement.execute( "CREATE TABLE IF NOT EXISTS `Flip`(`idFlip` INT NOT NULL AUTO_INCREMENT,`name` VARCHAR(45) NULL,`value` BOOLEAN DEFAULT 0, PRIMARY KEY (`idFlip`));" ); 
+	        // FIN AJOUT LIAISON
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public boolean createFlipBoolean(String name){
 		
 		boolean success = false; 
@@ -29,7 +40,7 @@ public class DatabaseManagerSQL extends DatabaseManager {
         try {
 			Statement statement = connection.createStatement();
 			
-			 success = statement.execute( "INSERT  INTO `Flipping` (`name`) VALUES ('"+name+"');" ); 
+			 success = statement.execute( "INSERT  INTO `Flipping` (`name`, `value`) VALUES ('"+name+"', '0');" ); 
 	        // FIN AJOUT LIAISON
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,5 +48,33 @@ public class DatabaseManagerSQL extends DatabaseManager {
         return success;
 		
 	}
+	
+	
+	public boolean flipping(String name){
+		
+		boolean success = false; 
+		
+        try {
+			Statement statement = connection.createStatement();
+			success = statement.execute("UPDATE `Flip` SET `value` = !`value` WHERE `name` = '"+name+"'");
+	        // FIN AJOUT LIAISON
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+        return success;
+	}
+	
+	public void close(){
+		
+		if ( connection != null ) {
+            try {
+            	connection.close();
+            } catch ( SQLException ignore ) {
+            	ignore.printStackTrace();
+            }
+        }
+	}
 
 }
+
+
