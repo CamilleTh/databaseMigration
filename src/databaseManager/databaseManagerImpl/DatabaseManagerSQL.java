@@ -32,7 +32,6 @@ public class DatabaseManagerSQL extends DatabaseManager {
 
 
 	public void connect(){
-			Connection connection = null;
 			
 			try { 
 		            Class.forName( "com.mysql.jdbc.Driver" );
@@ -43,13 +42,11 @@ public class DatabaseManagerSQL extends DatabaseManager {
 			
 			try {
 				
-				connection = DriverManager.getConnection( url, utilisateur, password );
+				this.connection = DriverManager.getConnection( url, utilisateur, password );
 			} catch (SQLException e) {
 
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			this.connection = connection;
 			
 	}
 	
