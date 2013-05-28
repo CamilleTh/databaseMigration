@@ -22,6 +22,11 @@ public class DatabaseManagerSQL extends DatabaseManager {
 	public String getPassword() {
 		return password;
 	}
+	
+	public Connection getConnection() {
+		return connection;
+	}
+	
 	public DatabaseManagerSQL(String url, String utilisateur, String password) {
 		this.url=url;
 		this.utilisateur=utilisateur;

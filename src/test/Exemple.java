@@ -1,6 +1,6 @@
 package test;
 
-import migrate.Migrate;
+import migrate.MigrationManager;
 
 public class Exemple {
 
@@ -10,7 +10,7 @@ public class Exemple {
 	public static void main(String[] args) {
     	
     	// Creation de l'objet
-    	Migrate m = new  Migrate();
+    	MigrationManager m = new  MigrationManager();
     	
     	// Lien avec la base et connection 
     	m.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
