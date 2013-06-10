@@ -10,11 +10,6 @@ public class DatabaseManagerMongoDB extends DatabaseManager {
 		return false;
 	}
 
-	@Override
-	public void connect() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public boolean initDirectory() {
@@ -22,11 +17,6 @@ public class DatabaseManagerMongoDB extends DatabaseManager {
 		return false;
 	}
 
-	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public boolean flipping(String name) {
